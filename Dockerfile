@@ -19,7 +19,8 @@ RUN set -ex \
 ADD . /app
 WORKDIR /app
 
-RUN python /app/manage.py migrate python manage.py collectstatic --noinput
+RUN python manage.py migrate 
+RUN python manage.py collectstatic --noinput
 
 ENV PATH /env/bin:$PATH
 
