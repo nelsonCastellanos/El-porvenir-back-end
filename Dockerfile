@@ -22,4 +22,4 @@ ENV PATH /env/bin:$PATH
 
 EXPOSE 8000
 
-CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "el_porvenir.wsgi.py"]
+CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "el_porvenir.wsgi:application"]
