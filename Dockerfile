@@ -1,8 +1,12 @@
 FROM python:3.10.6-alpine3.16
 
 # Create a group and user to run our app
-ARG APP_USER="el_porvenir"
-RUN addgroup -r ${APP_USER} && adduser --no-log-init -r -g ${APP_USER} ${APP_USER}
+
+# Create a group and user
+RUN addgroup -S el_porvenir_group && adduser -S el_porvenir -G el_porvenir_group
+
+# Tell docker that all future commands should run as the appuser user
+
 
 # Install packages needed to run your application (not build deps):
 #   mime-support -- for mime types when serving static files
@@ -69,7 +73,7 @@ ENV UWSGI_STATIC_MAP="/static/=/code/static/" UWSGI_STATIC_EXPIRES_URI="/static/
 # ENV UWSGI_ROUTE_HOST="^(?!localhost:8000$) break:400"
 
 # Change to a non-root user
-USER ${APP_USER}:${APP_USER}
+USER el_porvenir
 
 # Uncomment after creating your docker-entrypoint.sh
 # ENTRYPOINT ["/code/docker-entrypoint.sh"]
