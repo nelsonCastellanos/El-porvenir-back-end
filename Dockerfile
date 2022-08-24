@@ -18,6 +18,7 @@ RUN set -ex \
 ADD . /app
 WORKDIR /app
 
+RUN python manage.py collectstatic --noinput
 ENV PATH /env/bin:$PATH
 
 EXPOSE 8001
