@@ -1,5 +1,7 @@
 import os
 
+from el_porvenir.settings import BASE_DIR
+
 from . import *  # noqa: F403
 import dj_database_url
 
