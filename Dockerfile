@@ -1,6 +1,7 @@
 FROM python:3.10.6-alpine3.16
 
 ADD requirements.txt /app/requirements.txt
+ADD manage.py /app/manage.py
 
 RUN set -ex \
     && apk add --no-cache --virtual .build-deps build-base \
