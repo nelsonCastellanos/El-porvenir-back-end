@@ -1,7 +1,7 @@
 FROM python:3.10.6-alpine3.16
 
 # Create a group and user to run our app
-ARG APP_USER=appuser
+ARG APP_USER="el_porvenir"
 RUN groupadd -r ${APP_USER} && useradd --no-log-init -r -g ${APP_USER} ${APP_USER}
 
 # Install packages needed to run your application (not build deps):
