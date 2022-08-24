@@ -2,14 +2,14 @@ import os
 
 import dj_database_url
 
-from . import *  # noqa: F403
+from el_porvenir.settings import *
 
 # This is NOT a complete production settings file. For more, see:
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['*']
 
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)  # noqa: F405
 
