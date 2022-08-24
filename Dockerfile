@@ -7,6 +7,7 @@ RUN set -ex \
     && python -m venv /env \
     && /env/bin/pip install --upgrade pip \
     && /env/bin/pip install --no-cache-dir -r /app/requirements.txt \
+    && python app/manage.py collectstatic --noinput
     && runDeps="$(scanelf --needed --nobanner --recursive /env \
         | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
         | sort -u \
@@ -18,7 +19,6 @@ RUN set -ex \
 ADD . /app
 WORKDIR /app
 
-RUN python manage.py collectstatic --noinput
 ENV PATH /env/bin:$PATH
 
 EXPOSE 8001
