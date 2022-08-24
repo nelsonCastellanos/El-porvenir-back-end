@@ -8,7 +8,9 @@ RUN set -ex \
     && python -m venv /env \
     && /env/bin/pip install --upgrade pip \
     && /env/bin/pip install --no-cache-dir -r /app/requirements.txt \
+    && python -m pip install django
     && python /app/manage.py collectstatic --noinput \
+    && python /app/manage.py migrate \
     && runDeps="$(scanelf --needed --nobanner --recursive /env \
         | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
         | sort -u \
