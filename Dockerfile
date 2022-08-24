@@ -20,6 +20,6 @@ WORKDIR /app
 
 ENV PATH /env/bin:$PATH
 
-EXPOSE 8000
+EXPOSE 8001
 
-CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "el_porvenir.wsgi:application"]
+CMD ["gunicorn", "--bind", ":8001", "--workers", "3", "el_porvenir.wsgi:application"]
