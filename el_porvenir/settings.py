@@ -32,12 +32,29 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'wagtail_porvenir.apps.WagtailPorvenirConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail',
+
+    'modelcluster',
+    'taggit',
+    'wagtail.api.v2',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'el_porvenir.urls'
@@ -125,3 +143,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS=['https://el-porvenir-back-end-vm7rweyn6q-uc.a.run.app']
+WAGTAILIMAGES_IMAGE_MODEL = 'wagtail_porvenir.CustomPorvenirImage'
+WAGTAILDOCS_DOCUMENT_MODEL= 'wagtail_porvenir.CustomPorvenirDocument'
+WAGTAIL_SITE_NAME = 'El Porvenir'

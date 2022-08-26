@@ -26,4 +26,9 @@ ENV PATH /env/bin:$PATH
 
 EXPOSE 8001
 
+
+
+FROM nginx:1.22
+
+
 CMD ["gunicorn", "--bind", ":8001", "--workers", "3", "el_porvenir.wsgi:application"]

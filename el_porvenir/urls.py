@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from wagtail_porvenir.urls import urlpatterns as wagtail_porvenir_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 urlpatterns += staticfiles_urlpatterns()
+urlpatterns += wagtail_porvenir_urlpatterns
 
