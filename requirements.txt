@@ -6,3 +6,4 @@ dj-database-url==1.0.0
 gunicorn==20.1.0
 wagtail==3.0.1
 djangorestframework==3.5.2
+django-colorfield==9.2.0

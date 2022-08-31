@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'wagtail_porvenir.apps.WagtailPorvenirConfig',
+    'cms.apps.CmsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     'taggit',
     'wagtail.api.v2',
     'rest_framework',
+    'colorfield'
 ]
 
 MIDDLEWARE = [
