@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'wagtail.contrib.settings',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
@@ -124,11 +124,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
-USE_I18N = True
+USE_I18N = False
 
 USE_TZ = True
 
@@ -144,7 +144,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS=['https://el-porvenir-back-end-vm7rweyn6q-uc.a.run.app']
+# CSRF_TRUSTED_ORIGINS=['*']
 WAGTAILIMAGES_IMAGE_MODEL = 'wagtail_porvenir.CustomPorvenirImage'
 WAGTAILDOCS_DOCUMENT_MODEL= 'wagtail_porvenir.CustomPorvenirDocument'
 WAGTAIL_SITE_NAME = 'El Porvenir'
