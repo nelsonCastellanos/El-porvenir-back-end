@@ -13,14 +13,27 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import os
+
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from wagtail_porvenir.urls import urlpatterns as wagtail_porvenir_urlpatterns
+from django.views.generic import RedirectView
+
+from el_porvenir import settings
+from cms.urls import urlpatterns as wagtail_porvenir_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
-urlpatterns += staticfiles_urlpatterns()
 urlpatterns += wagtail_porvenir_urlpatterns
+
+if settings.DEBUG:
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+    urlpatterns += staticfiles_urlpatterns() # tell gunicorn where static files are in dev mode
+    urlpatterns += static(settings.MEDIA_URL + 'images/', document_root=os.path.join(settings.MEDIA_ROOT, 'images'))
+    urlpatterns += [
+        path('favicon.ico', RedirectView.as_view(url=settings.STATIC_URL + 'myapp/images/favicon.ico'))
+    ]
 

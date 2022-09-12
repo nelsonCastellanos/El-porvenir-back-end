@@ -1,3 +1,9 @@
+from django.urls import path, include
+
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.images import urls as wagtailimages_urls
+from wagtail import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
 from wagtail.api.v2.views import PagesAPIViewSet
 from wagtail.api.v2.router import WagtailAPIRouter
 from wagtail.images.api.v2.views import ImagesAPIViewSet
@@ -13,3 +19,12 @@ api_router = WagtailAPIRouter('wagtailapi')
 api_router.register_endpoint('pages', PagesAPIViewSet)
 api_router.register_endpoint('images', ImagesAPIViewSet)
 api_router.register_endpoint('documents', DocumentsAPIViewSet)
+
+
+urlpatterns = [
+    path('cms/', include(wagtailadmin_urls)),
+    path('documents/', include(wagtaildocs_urls)),
+    path('images/', include(wagtailimages_urls)),
+    path('pages/', include(wagtail_urls)),
+    path('api/v2/', api_router.urls),
+]

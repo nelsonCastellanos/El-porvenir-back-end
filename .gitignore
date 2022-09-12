@@ -130,3 +130,5 @@ dmypy.json
 /static
 /original_images
 /images
+/media
+.idea
