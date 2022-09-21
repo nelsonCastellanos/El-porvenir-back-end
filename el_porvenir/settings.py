@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-o9^i5uu1s=#*px(#+5ewph9b=nrglnbgwg32&+oixjo8a_=obc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'cms.apps.CmsConfig',
     'cms_home_page.apps.CmsHomePageConfig',
+    'cms_product_page.apps.CmsProductPageConfig',
 
     # Docs wagtail: https://docs.wagtail.org/en/stable/advanced_topics/add_to_django_project.html
     'wagtail.contrib.forms',
@@ -61,13 +62,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'colorfield'
+    'colorfield',
+
+    'corsheaders'
     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -205,4 +209,14 @@ WAGTAILIMAGES_IMAGE_MODEL = 'cms.CustomPorvenirImage'
 WAGTAILDOCS_DOCUMENT_MODEL = 'cms.CustomPorvenirDocument'
 WAGTAIL_SITE_NAME = 'El Porvenir'
 WAGTAIL_I18N_ENABLED = False
-WAGTAILADMIN_BASE_URL = 'http://127.0.0.1:8000/cms'
+WAGTAILADMIN_BASE_URL = 'http://127.0.0.1:8000/'
+
+
+CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8081',
+] # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    'http://localhost:8081',
+]
