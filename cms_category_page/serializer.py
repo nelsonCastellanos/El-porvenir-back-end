@@ -2,10 +2,11 @@ from rest_framework import serializers
 from wagtail.images.api.fields import ImageRenditionField
 
 
-class ProductPageCategoryBlockSerializer(serializers.Serializer):
+class CategoryPageCategoryBlockSerializer(serializers.Serializer):
     titulo = serializers.CharField()
     imagen = serializers.SerializerMethodField()
     page = serializers.SerializerMethodField()
+    category = serializers.CharField()
 
     def get_imagen(self, blocks):
         if blocks['imagen'] is not None:

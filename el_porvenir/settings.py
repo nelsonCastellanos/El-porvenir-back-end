@@ -34,8 +34,10 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'cms.apps.CmsConfig',
+    'category.apps.CategoryConfig',
+    'product.apps.ProductConfig',
     'cms_home_page.apps.CmsHomePageConfig',
-    'cms_product_page.apps.CmsProductPageConfig',
+    'cms_category_page.apps.CmsCategoryPageConfig',
 
     # Docs wagtail: https://docs.wagtail.org/en/stable/advanced_topics/add_to_django_project.html
     'wagtail.contrib.forms',
@@ -64,8 +66,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'colorfield',
 
-    'corsheaders'
-    
+    'corsheaders',
+    'import_export',
+    'generic_chooser'
 ]
 
 MIDDLEWARE = [
