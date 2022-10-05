@@ -20,5 +20,7 @@ class ProductSerializer(serializers.Serializer):
         return images
 
     def get_cover_image(self, blocks):
-        cover = blocks.cover_image[0].value
-        return ImageRenditionField("fill-100x100").to_representation(cover)
+        if blocks.cover_image:
+            cover = blocks.cover_image[0].value
+            return ImageRenditionField("fill-100x100").to_representation(cover)
+        return None
