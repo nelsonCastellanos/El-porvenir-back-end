@@ -212,7 +212,7 @@ WAGTAILIMAGES_IMAGE_MODEL = 'cms.CustomPorvenirImage'
 WAGTAILDOCS_DOCUMENT_MODEL = 'cms.CustomPorvenirDocument'
 WAGTAIL_SITE_NAME = 'El Porvenir'
 WAGTAIL_I18N_ENABLED = False
-WAGTAILADMIN_BASE_URL = 'http://127.0.0.1:8000/'
+WAGTAILADMIN_BASE_URL = 'http://127.0.0.1:8000'
 
 
 CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect

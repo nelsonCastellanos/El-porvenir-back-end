@@ -132,3 +132,4 @@ dmypy.json
 /images
 /media
 .idea
+*/migrations/*

@@ -15,7 +15,9 @@ class HomePageSectionBlockSerializer(serializers.Serializer):
 
     def get_imagen(self, blocks):
         if blocks['imagen'] is not None:
-            imagen = ImageRenditionField('height-' + str(blocks['largo'])).to_representation(blocks['imagen'])
+            imagen = ImageRenditionField(
+                'height-' + str(blocks['largo'])).to_representation(
+                    blocks['imagen'])
             return imagen
         return None
 
@@ -38,7 +40,8 @@ class HomePageSlideBlockSerializer(serializers.Serializer):
 
     def get_imagen(self, blocks):
         if blocks['imagen'] is not None:
-            imagen = ImageRenditionField('fill-2000x600').to_representation(blocks['imagen'])
+            imagen = ImageRenditionField('fill-2000x600').to_representation(
+                blocks['imagen'])
             return imagen
         return None
 
