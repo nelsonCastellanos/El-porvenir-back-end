@@ -7,7 +7,6 @@ from wagtail.admin.panels import FieldPanel
 from wagtail.fields import StreamField
 from wagtail import blocks
 from wagtail.images.blocks import ImageChooserBlock
-from category.models import Category
 
 from cms_home_page.field_block import ColorFieldBlock
 from cms_home_page.serializer import HomePageSectionBlockSerializer, HomePageSlideBlockSerializer
