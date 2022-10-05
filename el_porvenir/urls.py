@@ -22,11 +22,13 @@ from django.views.generic import RedirectView
 
 from el_porvenir import settings
 from cms.urls import urlpatterns as wagtail_porvenir_urlpatterns
+from product.urls import urlpatterns as product_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 urlpatterns += wagtail_porvenir_urlpatterns
+urlpatterns += product_urlpatterns
 
 if settings.DEBUG:
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns

@@ -68,7 +68,7 @@ INSTALLED_APPS = [
 
     'corsheaders',
     'import_export',
-    'generic_chooser'
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -223,3 +223,11 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOWED_ORIGIN_REGEXES = [
     'http://localhost:8081',
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'django_filters.rest_framework.filters.OrderingFilter',
+    ]
+}

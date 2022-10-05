@@ -10,3 +10,4 @@ django-cors-headers==3.13.0
 django-import-export==2.9.0
 yapf
 wagtail-generic-chooser==0.4.1
+django-filter==22.1
