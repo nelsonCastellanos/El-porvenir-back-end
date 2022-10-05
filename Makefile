@@ -25,6 +25,9 @@ local.start:
 	
 	pyenv virtualenv-delete -f porvenir_cms || pyenv virtualenv -f porvenir_cms
 	pyenv virtualenv -f porvenir_cms || echo "Salio mal"
+	
+	source ~/.pyenv/versions/porvenir_cms/bin/activate porvenir_cms && python3 -m pip install --upgrade pip
+	source ~/.pyenv/versions/porvenir_cms/bin/activate porvenir_cms && python3 -m pip install --upgrade pillow
 	source ~/.pyenv/versions/porvenir_cms/bin/activate porvenir_cms && python3 -m pip install -r requirements.txt
 	source ~/.pyenv/versions/porvenir_cms/bin/activate porvenir_cms && python manage.py makemigrations
 	source ~/.pyenv/versions/porvenir_cms/bin/activate porvenir_cms && python manage.py migrate
