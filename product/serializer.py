@@ -8,8 +8,8 @@ class ProductSerializer(serializers.Serializer):
     name = serializers.CharField()
     iva = serializers.IntegerField()
     description = serializers.CharField()
-    cantidad = serializers.IntegerField()
-    precio = serializers.DecimalField(decimal_places=2, max_digits=9)
+    quantity = serializers.IntegerField()
+    price = serializers.DecimalField(decimal_places=2, max_digits=9)
     cover_image = serializers.SerializerMethodField()
     images = serializers.SerializerMethodField()
 

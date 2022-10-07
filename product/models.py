@@ -11,8 +11,8 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     iva = models.IntegerField()
     description = models.TextField(max_length=500)
-    cantidad = models.IntegerField()
-    precio = models.DecimalField(decimal_places=2, max_digits=9)
+    quantity = models.IntegerField()
+    price = models.DecimalField(decimal_places=2, max_digits=9)
     cover_image = StreamField([('image', ImageChooserBlock())],
                               use_json_field=True,
                               max_num=1,
@@ -27,8 +27,8 @@ class Product(models.Model):
         FieldPanel('name'),
         FieldPanel('iva'),
         FieldPanel('description'),
-        FieldPanel('cantidad'),
-        FieldPanel('precio'),
+        FieldPanel('quantity'),
+        FieldPanel('price'),
         FieldPanel('images'),
         FieldPanel('cover_image')
     ]

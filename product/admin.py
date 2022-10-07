@@ -11,7 +11,7 @@ class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     class Meta:
         model = Product
         import_id_fields = ('code_siigo',)
-        fields = ('code_siigo','name','iva','description','cantidad','precio','category__name')
+        fields = ('code_siigo','name','iva','description','quantity','price','category__name')
     
 
 
